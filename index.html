@@ -3,7 +3,8 @@
 <head>
   <title>Quản lý tài khoản</title>
   <script>
-    const API_URL = 'https://script.google.com/macros/library/d/1tH2sdMWmB8g5nuNchPsRXXiOOBze2CcHejuchrbrTSZdY-a5KhK1YZa7/1'; // Thay bằng URL Web App của bạn
+    // URL của Web App (API Google Sheets)
+    const API_URL = 'https://script.google.com/macros/s/AKfycbzUDxUlYXyiyBoErboTBmzTuk2kGvcbR-pHtJ2HywCgjOoTxDWhXBRnNvZ7T9Avrwzljg/exec'; // Thay bằng URL của bạn
 
     // Hàm đăng nhập
     function login() {
@@ -13,7 +14,7 @@
       fetch(API_URL + '?username=' + username + '&password=' + password)
         .then(response => response.text())
         .then(data => {
-          console.log(data); // Xem dữ liệu trả về từ API
+          console.log(data);
           if (data !== 'Invalid credentials') {
             var result = JSON.parse(data);
             document.getElementById('x').value = result.x;
